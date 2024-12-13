@@ -1,0 +1,96 @@
+﻿@page
+@model CookieSite.Pages.HomeScreenModel
+@{
+}
+<form method="post">
+
+    <div class="title">
+
+        <div class="title_text">
+            <p class="large_words">Warm.<br>Delicious.<br>Delivered.</p>
+            <p class="small_words">Don't leave the house. We'll bring<br>fresh-baked cookies to your<br>doorstep, even really reaallly late.</p>
+        </div>
+
+        <div class="title_image">
+            <img src="~/images/titlepicture.jpg" alt="4 Pack Cookies" />
+        </div>
+
+    </div>
+    <div class="BoxSelector">
+        <div class="HomeScreenText">
+            <h2>Check Out Our Fan Favorite Boxes</h2>
+            <span>Create the perfect sweet treat with our customizable cookie boxes!
+                Choose your favorite cookies, we know it's hard, they're all so good.
+                Pick which size suites you best to get started!
+            </span>
+            <img src="~/images/Cookies.png" alt="CookieSite Logo" style="height: auto; width: auto;">
+        </div>
+
+        <div class="CookieBoxes">
+            <div class="FirstRow">
+                <div class="FourPack">
+                    <img src="~/images/4_pack_cookies.png" alt="4 Pack Cookies" />
+                    <div class="text-button">
+                        <span>Custom 4 Pack Box</span>
+                        <p>$9.99</p>
+                        <input asp-page-handler="FourPack" type="submit" value="That looks good!" />
+                    </div>
+                </div>
+
+                <div class="SixPack">
+                    <img src="~/images/6_pack_cookies.png" alt="6 Pack Cookies" />
+                    <div class="text-button">
+                        <span>Custom 6 Pack Box</span>
+                        <p>$12.99</p>
+                        <input asp-page-handler="SixPack" type="submit" value="That looks good!" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="SecondRow">
+                <div class="EightPack">
+                    <img src="~/images/8_pack_cookies.png" alt="4 Pack Cookies" />
+                    <div class="text-button">
+                        <span>Custom 8 Pack Box</span>
+                        <p>$15.99</p>
+                        <input asp-page-handler="EightPack" type="submit" value="That looks good!" />
+                    </div>
+                </div>
+
+                <div class="TwelvePack">
+                    <img src="~/images/12_pack_cookie.png" alt="6 Pack Cookies" />
+                    <div class="text-button">
+                        <span>Custom 12 Pack Box</span>
+                        <p>$19.99</p>
+                        <input asp-page-handler="TwelvePack" type="submit" value="That looks good!" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script type="text/javascript">
+
+    function deleteCookie(name) {
+        document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/`;
+    }
+
+    function clearCookiesOnHomeScreen() {
+        const cookiesToDelete = [
+            "Sprinkled Confetti Bash",
+            "Oatmeal Walnut",
+            "Peanut Butter Cup",
+            "Salted Caramel",
+            "Smores",
+            "Triple Chocolate"
+        ];
+
+        cookiesToDelete.forEach(cookieName => deleteCookie(cookieName));
+    }
+
+    window.onload = function () {
+        clearCookiesOnHomeScreen();
+    }
+
+</script>

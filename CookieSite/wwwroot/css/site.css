@@ -1,0 +1,665 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    background: linear-gradient(to right, #f9f9f9, #7888da); /* White to Light Purple */
+    background-size: 200% 100%; /* Start with just the first color */
+    background-position: left center; /* Align it to the left, showing mostly white */
+    margin-bottom: 60px;
+}
+
+.title {
+    display: flex;
+    width: 800px;
+    height: 350px;
+    margin: 50px auto 0; /* the first value is the spacing from the top */
+    justify-content: space-between;
+    background: linear-gradient(to right, #f9f9f9, #DF9DF1);
+    border-radius: 10px;
+    box-shadow: 0 0 10px;
+    position: relative;
+    z-index: 2;
+}
+
+.title_text {
+    display: flex;
+    margin-left: 70px;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.large_words {
+    font-size: 45px;
+    font-weight: bold;
+    font-family: 'Copperplate Gothic';
+    line-height: 1;
+}
+
+.small_words {
+    font-size: 19px;
+    font-family: Arial;
+}
+
+.title_image {
+    display: flex;
+    margin-right: 70px;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.title_image img {
+    width: 300px;
+    height: 300px;
+    border: 2px solid #7888da;
+    border-radius: 10px;
+}
+
+.BoxSelector {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -100px;
+    border-style: solid;
+    border-width: 1px;
+    height: 600px;
+    width: 1300px;
+    position: relative;
+    z-index: 1;
+    border-radius: 10px;
+    background-color: whitesmoke;
+}
+
+.HomeScreenText {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 30%;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    justify-content: center; /* Centers content vertically */
+    align-items: center;
+    text-align: center;
+}
+
+.HomeScreenText span {
+    font-size: 17px;
+    font-family: Arial;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.HomeScreenText h2 {
+    font-size: 33px;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    line-height: 1;
+}
+
+.CookieBoxes {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 70%;
+    justify-content: center;
+    align-items: center;
+}
+
+.FirstRow {
+    display: flex;
+/*    border-style: solid;
+    border-width: 1px;*/
+    margin-top: 70px;
+    
+}
+
+.SecondRow {
+    display: flex;
+/*    border-style: solid;
+    border-width: 1px;*/
+}
+
+.FourPack {
+    display: flex;
+    align-items: center; /* Vertically align image and text/button */
+    margin-right: 20px;
+}
+
+.FourPack img {
+    width: 200px;
+    height: 200px;
+    margin-right: 20px; /* Space between the image and the text/button */
+    transition: transform 0.3s ease;
+}
+
+.FourPack img:hover {
+    transform: scale(1.2);
+}
+
+.SixPack {
+    display: flex;
+    align-items: center; /* Vertically align image and text/button */ 
+}
+
+.SixPack img {
+    width: 200px;
+    height: 200px;
+    margin-right: 18px; /* Space between the image and the text/button */
+    transition: transform 0.3s ease;
+}
+
+.SixPack img:hover {
+    transform: scale(1.2);
+}
+
+.EightPack {
+    display: flex;
+    align-items: center; /* Vertically align image and text/button */
+    margin-right: 20px;
+}
+
+.EightPack img {
+    width: 200px;
+    height: 200px;
+    margin-right: 20px; /* Space between the image and the text/button */
+    transition: transform 0.3s ease;
+}
+
+.EightPack img:hover {
+    transform: scale(1.2);
+}
+
+.TwelvePack {
+    display: flex;
+    align-items: center; /* Vertically align image and text/button */ 
+}
+
+.TwelvePack img {
+    width: 200px;
+    height: 200px;
+    margin-right: 20px; /* Space between the image and the text/button */
+    transition: transform 0.3s ease;
+}
+
+.TwelvePack img:hover {
+    transform: scale(1.2);
+}
+
+.text-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Align text and button vertically */
+}
+
+.text-button input[type="submit"] {
+    font-size: 16px;
+    padding: 8px 18px;
+    border-radius: 12px;
+    box-shadow: 0 0 5px;
+    cursor: pointer;
+    background-color: #FCD2F3;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.text-button input[type="submit"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.6);
+}
+
+.text-button span {
+    margin-bottom: 20px; /* Space between text and button */
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    justify-content: center;
+}
+
+.navbar-brand { /* This is JUST the area around the logo */
+    margin-right: 150px; /* Space between logo and navbar links */
+}
+
+.nav-link {
+    font-size: 18px;
+}
+
+.nav-item {
+    padding: 10px;
+}
+
+.navbar {
+    background: linear-gradient(to right, #f9f9f9, #DF9DF1);
+    box-shadow: 0 0 5px;
+}
+
+.navbar-brand-1 {
+    margin-left: -100px; /* Space between "follow our socials" and social media icons */
+}
+
+.navbar-brand-1 img {
+    margin-right: 15px;  /* Space between social media icons */
+}
+
+#links {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; /* These are the middle four navbar links */
+    transition: transform 0.1s ease;
+    font-weight: bold;
+}
+
+#links:hover {
+    transform: translateY(-3px);
+}
+
+#socials {
+    text-decoration: underline; /* Socials is the "follow our socials" text */
+    font-weight: bold;
+}
+
+#socials:hover {
+    cursor: default;
+}
+
+/* The classes below are for the ProductInfoFourPack page. */
+
+.ProductInfoFourPack {      /* This is the image and text above the cookie selector. */
+    display: flex;
+    margin: 50px auto 0; /* the first value is the spacing from the top */
+    width: 1200px;
+    height: 500px;
+}
+
+.ProductInfoFourPackImage {
+    display: flex;
+    margin-right: 70px;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ProductInfoFourPackImage img {
+    width: 500px;
+    height: 500px;
+}
+
+.ProductInfoFourPackText {
+    display: flex;
+    margin-left: 70px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+}
+
+.ProductInfoFourPackText span {
+    font-weight: normal;
+    margin-left: 20px;
+    font-size: 25px;
+}
+
+.ProductInfoFourPackText h1 {
+    font-weight: bold;
+    font-size: 45px;
+    font-family: Marker Felt, fantasy;
+    word-spacing: 5px;
+}
+
+.ProductInfoFourPackText p {
+    font-size: 20px;
+}
+
+#BackToMenu {
+    background: none;
+    border: none;
+    text-align: left;
+    width: fit-content;
+    text-decoration: underline;
+}
+
+.CookieSelector {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping of flex items */
+    width: 1300px;
+    height: fit-content;
+    margin: 0 auto 0;
+    gap: 15px;
+    padding-left: 25px;
+    align-items: flex-end;
+}
+
+.CookieSelector img {
+    width: 200px;
+    height: 200px;
+    background: none;
+}
+
+.Confetti {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content vertically */
+    width: 200px;
+    height: fit-content;
+}
+
+.Confetti h2 {
+    text-align: center;
+    font-size: 24px;
+}
+
+.Confetti p {
+    text-align: center;
+}
+
+.QuantitySelector {
+    display: flex;
+    align-items: flex-end;   /* This keeps the items in this div at the bottom, so the text is inline with the buttons. */
+    gap: 15px;
+
+}
+
+.QuantitySelector span {
+    font-size: 20px;
+}
+
+.QuantitySelector button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: #DF9DF1; /* This changes the text color in the button, not the buttoon itself. */
+    font-size: 30px;
+    width: 35px;
+    height: 35px;
+}
+
+#checkoutButton {
+    transition: opacity 0.3s ease;
+    opacity: 1;
+    width: 300px;
+    margin-top: 15px;
+    border-radius: 12px;
+    box-shadow: 0 0 5px;
+    background-color: #DF9DF1;
+}
+
+#checkoutButton:disabled {
+    opacity: initial;
+    font-weight: bold;
+}
+
+/* Checkout Page CSS */
+
+.CheckoutLayout {
+    display: flex;
+    gap: 50px;
+}
+
+.FirstThird {
+    width: fit-content;
+}
+
+.SecondThird {
+    width: fit-content;
+}
+
+.ThirdThird {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+}
+
+.DoubleCheckOrder {
+    display: flex;
+    flex-direction: column; /* Stack everything vertically */
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    border-style: solid;
+    border-width: 1px;
+    padding: 20px; /* Add some padding for spacing */
+    border-radius: 10px;
+    background-color: whitesmoke;
+    box-shadow: 0 0 10px;
+    margin-bottom: 40px;
+}
+
+.OrderLayout {
+    display: flex;
+    justify-content: space-between; /* Space out the left and right orders */
+    width: 100%; /* Ensure it takes full width */
+}
+
+.LeftSideOrder, .RightSideOrder {
+    display: flex;
+    flex-direction: column; /* Stack the items vertically within each section */
+    margin: 10px; /* Space between the left and right sides */
+}
+
+.LeftSideOrder p, .RightSideOrder p {
+    margin: 5px 0; /* Space between each item */
+    font-size: 18px;
+}
+
+.LeftSideOrder span, .RightSideOrder span {
+    margin-left: 5px;
+}
+
+.OrderButtonLayout {
+    display: flex;
+    width: 100%;
+    justify-content: center; /* Center buttons horizontally */
+    align-items: center;
+    gap: 65px;
+    margin-top: 25px;
+}
+
+.OrderButtonLayout input[type="submit"] {
+    border-radius: 12px;
+    box-shadow: 0 0 5px;
+    background-color: pink;
+    transition: all 0.3s ease;
+}
+
+.OrderButtonLayout input[type="submit"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+.OrderButtonLayout button {
+    border-radius: 12px;
+    box-shadow: 0 0 5px;
+    background-color: pink;
+    transition: all 0.3s ease;
+}
+
+.OrderButtonLayout button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.ContactInformation {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: fit-content;
+    padding: 15px;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    background-color: whitesmoke;
+    box-shadow: 0 0 10px;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0s 0.3s;
+}
+
+.ContactInformation input[type="text"] {
+    border-radius: 12px;
+    text-align: center;
+    padding: 1px;
+    width: 75%;
+}
+
+.ContactInformation select {
+    border-radius: 12px;
+    text-align: center;
+    padding: 1px;
+    width: 75%;
+
+}
+
+.ContactInformation h3 {
+    margin-bottom: 25px;
+}
+
+.ContactInformation p {
+    color: pink;
+    font-weight: bold;
+}
+
+.CardInformtation {
+    flex-direction: column;
+    margin-top: 80px;
+    padding: 20px;
+    border-style: solid;
+    border-width: 1px;
+    width: 400px;
+    border-radius: 10px;
+    background-color: whitesmoke;
+    box-shadow: 0 0 10px;
+}
+
+.CardInformtation h3 {
+    margin-bottom: 25px;
+}
+
+.CardInformtation label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.CardInformtation input[type="text"] {
+    margin-bottom: 15px;
+    border-radius: 12px;
+    padding: 1px;
+}
+
+.Payment {
+    flex-direction: column;
+    margin-top: 40px;
+    padding: 20px;
+    width: 350px;
+    border-radius: 10px;
+    background-color: whitesmoke;
+    box-shadow: 0 0 10px;
+}
+
+.Payment h3 {
+    margin: 0 auto 20px auto;  /* Centers horizontally with bottom margin */
+    display: block;
+}
+
+.PriceLabels {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+#boxPrice {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#boxType {
+    font-weight: bold;
+    font-size: 19.5px;
+}
+
+#cookieTextarea {
+    font-family: "Courier New", Courier, monospace;
+    width: auto;
+    margin-bottom: 5px;
+    resize: none;
+    overflow: hidden;
+    white-space: pre-wrap;
+    border: hidden;
+    background-color: whitesmoke;
+    line-height: 1.8;
+}
+
+#subTotal {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+#tax {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+#total {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+#firstName {
+    margin-bottom: 20px;
+}
+#lastName {
+    margin-bottom: 20px;
+}
+#email {
+    margin-bottom: 20px;
+}
+#countryCode {
+    margin-bottom: 20px;
+}
+#phoneNumber {
+    margin-bottom: 20px;
+}
+
+.TotalLabel {
+    display: flex;
+    border-style: dotted;
+    border-width: 2px;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.FinishButton input[type="submit"] {
+    margin-top: 25px;
+    border-radius: 12px;
+    box-shadow: 0 0 5px;
+    background-color: pink;
+    transition: all 0.3s ease;
+    padding: 10px 20px;
+    font-size: 20px;
+    border: none;
+}
+
+.FinishButton input[type="submit"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.LegalInformation label {
+    margin-top: 45px;
+    font-size: 10px;
+}

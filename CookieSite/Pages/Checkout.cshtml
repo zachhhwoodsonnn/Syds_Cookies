@@ -1,0 +1,306 @@
+﻿@page
+@model CookieSite.Pages.CheckoutModel
+@{
+}
+
+<div class="CheckoutLayout">
+    <div class="FirstThird">
+
+        <div class="DoubleCheckOrder">
+            <h3>Check Your Order Below!</h3>
+
+            <div class="OrderLayout">
+                <div class="LeftSideOrder">
+                    <p>Sprinkled Confetti Bash: <span class="color" id="confettiQuantity"></span></p>
+                    <p>Oatmeal Walnut: <span class="color" id="oatmealwalnutQuantity"></span></p>
+                    <p>Peanut Butter Cup: <span class="color" id="peanutbuttercupQuantity"></span></p>
+                </div>
+
+                <div class="RightSideOrder">
+                    <p>Salted Caramel: <span class="color" id="saltedcaramelQuantity"></span></p>
+                    <p>S'mores: <span class="color" id="smoresQuantity"></span></p>
+                    <p>Triple Chocolate: <span class="color" id="triplechocolateQuantity"></span></p>
+                </div>
+            </div>
+
+            <div class="OrderButtonLayout">
+                <form method="post">
+                    <input asp-page-handler="GoBack" id="goBackButton" type="submit" value="Go Back!" />
+                </form>
+                <button id="nextStepButton">Next Step!</button>
+            </div>
+        </div>
+
+        <div class="ContactInformation">
+            <h3>Add Contact Information</h3>
+            <input id="firstName" type="text" placeholder="First Name" />
+            <input id="lastName" type="text" placeholder="Last Name" />
+            <input style="margin-bottom: 5px" id="email" type="text" placeholder="Email" />
+            <select id="countryCode">
+                <option value="" disabled selected>Country Code</option>
+                <option value="+1">+1 (USA)</option>
+                <option value="+44">+44 (UK)</option>
+            </select>
+            <input id="phoneNumber" type="text" placeholder="Phone Number" />
+            <p>*This information is needed to process your order*</p>
+        </div>
+
+    </div>
+
+    <div class="SecondThird">
+
+        <div class="CardInformtation" style="display: none;">
+            <h3>Credit / Debit Card</h3>
+            <label>Cardholder Name</label>
+            <input id="name" type="text" placeholder="Enter Card Holder Name" />
+            <label>Card Number</label>
+            <input id="number" type="text" placeholder="Enter Card Number" />
+            <label>Expiration Date</label>
+            <input id="date" type="text" placeholder="MM/YY" />
+            <label>Security Code</label>
+            <input id="code" type="text" placeholder="CVC" />
+            <label>Postal Code</label>
+            <input id="postal" type="text" placeholder="Enter Postal Code" />
+        </div>
+    </div>
+
+    <div class="ThirdThird">
+
+        <div class="Payment" style="display: none;">
+            <h3>Payment</h3>
+            <div class="PriceLabels">
+                <label id="boxType">Error</label>
+                <label id="boxPrice">Error</label>
+            </div>
+            <textarea id="cookieTextarea" disabled></textarea>
+            <div class="PriceLabels">
+                <label>Sub Total</label>
+                <label id="subTotal"></label>
+            </div>
+            <div class="PriceLabels">
+                <label>Tax</label>
+                <label id="tax"></label>
+            </div>
+            <div class="TotalLabel">
+                <label>Total</label>
+                <label id="total"></label>
+            </div>
+        </div>
+
+        <div class="FinishButton" style="display: none;">
+            <input type="submit" value="Complete Order" />
+        </div>
+
+        <div class="LegalInformation" style="display: none;">
+            <label>*BY PLACING THIS ORDER, YOU AGREE<br /> TO SYD'S COOKIES' TERMS AND CONDITIONS,<br />
+                PRIVACY POLICY, AND MESSAGING TERMS. SYD'S<br /> COOKIES WILL NOT SHARE OR SELL
+                YOUR<br /> PERSONAL INFORMATION.
+            </label>
+        </div>
+
+    </div>
+
+</div>
+
+
+<script type="text/javascript">
+
+    window.onload = function () {
+        const quantities = document.querySelectorAll('.color');
+
+        quantities.forEach(function (span) {
+            if (span.textContent !== '0') {
+                span.style.color = '#E382FF';
+                span.style.fontWeight = 'bold';
+                span.style.fontSize = '20px';
+            }
+        });
+    };
+
+    const confettiQuantity = getCookie("Sprinkled Confetti Bash");
+    const oatmealwalnutQuantity = getCookie("Oatmeal Walnut");
+    const peanutbuttercupQuantity = getCookie("Peanut Butter Cup");
+    const saltedcaramelQuantity = getCookie("Salted Caramel");
+    const smoresQuantity = getCookie("Smores");
+    const triplechocolateQuantity = getCookie("Triple Chocolate");
+
+    let referrer = document.referrer;
+    let boxType = '';
+
+    if (referrer.includes('/ProductInfoFourPack')) {
+        boxType = '4-Pack';
+        document.getElementById('boxPrice').innerText = "$9.99";
+        document.getElementById('subTotal').innerText = "$9.99";
+        document.getElementById('tax').innerText = "$0.69";
+        document.getElementById('total').innerText = "$10.68";
+
+
+    } else if (referrer.includes('/ProductInfoSixPack')) {
+        boxType = '6-Pack';
+        document.getElementById('boxPrice').innerText = "$12.99";
+        document.getElementById('subTotal').innerText = "$12.99";
+        document.getElementById('tax').innerText = "$0.91";
+        document.getElementById('total').innerText = "$13.90";
+
+
+    } else if (referrer.includes('/ProductInfoEightPack')) {
+        boxType = '8-Pack';
+        document.getElementById('boxPrice').innerText = "$15.99";
+        document.getElementById('subTotal').innerText = "$15.99";
+        document.getElementById('tax').innerText = "$1.12";
+        document.getElementById('total').innerText = "$17.11";
+
+
+    } else if (referrer.includes('/ProductInfoTwelvePack')) {
+        boxType = '12-Pack'
+        document.getElementById('boxPrice').innerText = "$19.99";
+        document.getElementById('subTotal').innerText = "$19.99";
+        document.getElementById('tax').innerText = "$1.40";
+        document.getElementById('total').innerText = "$21.39";
+
+
+    } else {
+        boxType = 'Error';  // Default case
+        document.getElementById('boxPrice').innerText = "Error";
+        document.getElementById('subTotal').innerText = "Error";
+        document.getElementById('tax').innerText = "Error";
+        document.getElementById('total').innerText = "Error";
+
+
+
+    }
+
+    document.getElementById('boxType').innerText = `${boxType}`;
+
+    function getCookie(name) {
+        const cookieDecoded = decodeURIComponent(document.cookie);
+        const cookieArray = cookieDecoded.split("; ");
+        let result = null;
+
+        cookieArray.forEach(element => {
+            if (element.indexOf(name) == 0) {
+                result = element.substring(name.length + 1);
+            }
+        })
+
+        return result;
+
+    }
+
+    function getCookies() {
+        const cookies = document.cookie.split('; ');
+        const cookieObject = {};
+
+        cookies.forEach(cookie => {
+            const [name, value] = cookie.split('=');
+            cookieObject[name] = value;
+        });
+
+        return cookieObject;
+    }
+
+    function populateTextarea() {
+        const cookieObject = getCookies();
+        const textarea = document.getElementById('cookieTextarea');
+
+        let formattedCookies = '';
+        const nameMaxLength = Math.max(...Object.keys(cookieObject).map(name => name.length)); // Find longest cookie name
+
+        const columnWidth = nameMaxLength + 5;
+
+        for (const [name, value] of Object.entries(cookieObject)) {
+            formattedCookies += `${name.padEnd(columnWidth)}${value}\n`;
+        }
+
+        textarea.value = formattedCookies;
+
+        // Adjust height based on content
+        adjustHeight(textarea);
+    }
+
+    function adjustHeight(textarea) {
+        textarea.style.height = 'auto'; // Reset height
+        textarea.style.height = `${textarea.scrollHeight}px`; // Set height to content height
+    }
+
+    populateTextarea();
+
+    document.getElementById("confettiQuantity").textContent = confettiQuantity ? confettiQuantity : "0";
+    document.getElementById("oatmealwalnutQuantity").textContent = oatmealwalnutQuantity ? oatmealwalnutQuantity : "0";
+    document.getElementById("peanutbuttercupQuantity").textContent = peanutbuttercupQuantity ? peanutbuttercupQuantity : "0";
+    document.getElementById("saltedcaramelQuantity").textContent = saltedcaramelQuantity ? saltedcaramelQuantity : "0";
+    document.getElementById("smoresQuantity").textContent = smoresQuantity ? smoresQuantity : "0";
+    document.getElementById("triplechocolateQuantity").textContent = triplechocolateQuantity ? triplechocolateQuantity : "0";
+
+
+    document.getElementById("nextStepButton").addEventListener("click", function () {
+        var contactInfo = document.querySelector(".ContactInformation");
+        contactInfo.style.visibility = "visible";
+        contactInfo.style.opacity = "1";
+        contactInfo.style.pointerEvents = "auto";
+    });
+
+    document.getElementById("goBackButton").addEventListener("click", function (event) {
+        event.preventDefault();
+
+        function deleteAllCookies() {
+            var cookies = document.cookie.split(";");
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i];
+                var cookieName = cookie.split("=")[0].trim();
+                document.cookie = cookieName + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"; 
+            }
+        }
+
+        deleteAllCookies();
+
+        history.back();
+    });
+
+    function checkContactInformation() {
+        const firstName = document.getElementById('firstName').value;
+        const lastName = document.getElementById('lastName').value;
+        const email = document.getElementById('email').value;
+        const countryCode = document.getElementById('countryCode').value;
+        const phoneNumber = document.getElementById('phoneNumber').value;
+
+        return firstName && lastName && email && countryCode && phoneNumber;
+    }
+
+    document.querySelectorAll('.ContactInformation input, .ContactInformation select').forEach(function (input) {
+        input.addEventListener('input', function () {
+            if (checkContactInformation()) {
+                document.querySelector(".CardInformtation").style.display = "flex";
+            } else {
+                document.querySelector(".CardInformtation").style.display = "none";
+                document.querySelector(".Payment").style.display = "none";
+            }
+        });
+    });
+
+    function checkCardInfo() {
+        const name = document.getElementById("name").value;
+        const number = document.getElementById("number").value;
+        const date = document.getElementById("date").value;
+        const code = document.getElementById("code").value;
+        const postal = document.getElementById("postal").value;
+
+        if (name && number && date && code && postal) {
+            document.querySelector(".Payment").style.display = "flex";
+            document.querySelector(".FinishButton").style.display = "block";
+            document.querySelector(".LegalInformation").style.display = "block";
+            populateTextarea();
+        } else {
+            document.querySelector(".Payment").style.display = "none";
+            document.querySelector(".FinishButton").style.display = "none";
+            document.querySelector(".LegalInformation").style.display = "none";
+        }
+    }
+
+    document.getElementById("name").addEventListener("input", checkCardInfo);
+    document.getElementById("number").addEventListener("input", checkCardInfo);
+    document.getElementById("date").addEventListener("input", checkCardInfo);
+    document.getElementById("code").addEventListener("input", checkCardInfo);
+    document.getElementById("postal").addEventListener("input", checkCardInfo);
+
+ </script>
